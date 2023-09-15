@@ -1,4 +1,4 @@
-﻿import { Decorators, EntityGrid } from '@serenity-is/corelib';
+import { Decorators, EntityGrid } from '@serenity-is/corelib';
 import { SubjectsColumns, SubjectsRow, SubjectsService } from '../../ServerTypes/Syllabus';
 import { SubjectsDialog } from './SubjectsDialog';
 
@@ -11,5 +11,23 @@ export class SubjectsGrid extends EntityGrid<SubjectsRow, any> {
 
     constructor(container: JQuery) {
         super(container);
+    }
+    protected getButtons() {
+        var buttons = super.getButtons();
+        buttons.push({
+            title: 'Import From Excel',
+            cssClass: 'export-xlsx-button',
+            onClick: () => {
+                // open import dialog, let it handle rest
+                var dialog = new SubjectExcelImportDialog();
+                dialog.element.on('dialogclose', () => {
+                    this.refresh();
+                    dialog = null;
+                });
+                dialog.dialogOpen();
+            },
+            separator: true
+        });
+        return buttons;
     }
 }

@@ -13,7 +13,7 @@ namespace JSPM.Migrations.DefaultDB
 
            
 
-            Create.Table("Subjects").InSchema("Syllabus")
+            Create.Table("Subjects")
                  .WithColumn("Id").AsInt32()
                  .Identity().PrimaryKey().NotNullable()
                  .WithColumn("Subject Name").AsString(200).NotNullable()

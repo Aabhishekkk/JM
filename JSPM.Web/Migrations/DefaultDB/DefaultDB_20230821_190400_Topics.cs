@@ -12,7 +12,7 @@ namespace JSPM.Migrations.DefaultDB
 
 
             
-            Create.Table("Topics").InSchema("Syllabus")
+            Create.Table("Topics")
                  .WithColumn("Id").AsInt32()
                  .Identity().PrimaryKey().NotNullable()
                  .WithColumn("SubjectId").AsInt32().Nullable().ForeignKey("FK_Topics_Subjects_Id","Syllabus","Subjects","Id")   
