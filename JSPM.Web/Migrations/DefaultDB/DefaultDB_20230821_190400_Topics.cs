@@ -15,8 +15,8 @@ namespace JSPM.Migrations.DefaultDB
             Create.Table("Topics")
                  .WithColumn("Id").AsInt32()
                  .Identity().PrimaryKey().NotNullable()
-                 .WithColumn("SubjectId").AsInt32().Nullable().ForeignKey("FK_Topics_Subjects_Id","Syllabus","Subjects","Id")   
-                 .WithColumn("ChapterId").AsInt32().Nullable().ForeignKey("FK_Topics_Chapters_Id", "Syllabus", "Chapters", "Id")
+                 .WithColumn("SubjectId").AsInt32().Nullable().ForeignKey("FK_Topics_Subjects_Id","Subjects","Id")   
+                 .WithColumn("ChapterId").AsInt32().Nullable().ForeignKey("FK_Topics_Chapters_Id", "Chapters", "Id")
                 
                 .WithColumn("TopicName").AsString(100).NotNullable()
                 .WithColumn("Description").AsString(1000).Nullable()

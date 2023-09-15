@@ -14,7 +14,7 @@ namespace JSPM.Migrations.DefaultDB
             Create.Table("Chapters")
                  .WithColumn("Id").AsInt32()
                  .Identity().PrimaryKey().NotNullable()
-                  .WithColumn("SubjectId").AsInt32().Nullable().ForeignKey("FK_Chapters_Subjects_Id", "Syllabus", "Subjects", "Id")
+                  .WithColumn("SubjectId").AsInt32().Nullable().ForeignKey("FK_Chapters_Subjects_Id", "Subjects", "Id")
                  .WithColumn("ChapterName").AsString(200).NotNullable()
                  .WithColumn("Description").AsString(1000).Nullable()
                  .WithColumn("Index").AsInt32().Nullable();
