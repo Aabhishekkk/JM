@@ -1,4 +1,5 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
+using System;
 
 namespace JSPM.Organisation.Forms;
 
@@ -6,7 +7,7 @@ namespace JSPM.Organisation.Forms;
 [BasedOnRow(typeof(SemestersRow), CheckNames = true)]
 public class SemestersForm
 {
-    public int Semester { get; set; }
+    public String Semester { get; set; }
     public int AcademicYearsId { get; set; }
     public int Index { get; set; }
 }

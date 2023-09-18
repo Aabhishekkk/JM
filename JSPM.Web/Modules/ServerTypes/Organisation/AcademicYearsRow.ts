@@ -2,7 +2,7 @@
 
 export interface AcademicYearsRow {
     Id?: number;
-    AcademicYear?: number;
+    AcademicYear?: string;
     Index?: number;
 }
 

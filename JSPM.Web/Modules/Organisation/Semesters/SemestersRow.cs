@@ -1,6 +1,7 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using System;
 using System.ComponentModel;
 
 namespace JSPM.Organisation;
@@ -21,13 +22,13 @@ public sealed class SemestersRow : Row<SemestersRow.RowFields>, IIdRow
     }
 
     [DisplayName("Semester"), NotNull]
-    public int? Semester
+    public String Semester
     {
         get => fields.Semester[this];
         set => fields.Semester[this] = value;
     }
 
-    [DisplayName("Academic Years"), Column("AcademicYears Id"), ForeignKey("[organisation].[AcademicYears ]", "Id"), LeftJoin(jAcademicYears)]
+    [DisplayName("Academic Years"), Column("AcademicYears_Id"), ForeignKey("[organisation].[AcademicYears ]", "Id"), LeftJoin(jAcademicYears)]
     public int? AcademicYearsId
     {
         get => fields.AcademicYearsId[this];
@@ -44,7 +45,7 @@ public sealed class SemestersRow : Row<SemestersRow.RowFields>, IIdRow
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
-        public Int32Field Semester;
+        public StringField Semester;
         public Int32Field AcademicYearsId;
         public Int32Field Index;
 
