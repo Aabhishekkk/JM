@@ -1,11 +1,11 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
 
 namespace JSPM.Syllabus;
 
-[ConnectionKey("Default"), Module("Syllabus"), TableName("[Syllabus].[Subjects]")]
+[ConnectionKey("Default"), Module("Syllabus"), TableName("[dbo].[Subjects]")]
 [DisplayName("Subjects"), InstanceName("Subjects")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
@@ -64,6 +64,28 @@ public sealed class SubjectsRow : Row<SubjectsRow.RowFields>, IIdRow, INameRow
         set => fields.BranchName[this] = value;
     }
 
+    [DisplayName("Subject Code")]
+    public string SubjectCode
+    {
+        get => fields.SubjectCode[this];
+        set => fields.SubjectCode[this] = value;
+    }
+    
+    [DisplayName("Description") ]
+    public string Description
+    {
+        get => fields.Description[this];
+        set => fields.Description[this] = value;
+    }
+    [DisplayName("SubjectType") ]
+    public string SubjectType
+    {
+        get => fields.SubjectType[this];
+        set => fields.SubjectType[this] = value;
+    }
+
+
+    
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
@@ -72,7 +94,10 @@ public sealed class SubjectsRow : Row<SubjectsRow.RowFields>, IIdRow, INameRow
         public Int32Field AcademicYearId;
         public Int32Field SemesterId;
         public StringField Priority;
-
         public StringField BranchName;
+        public StringField SubjectCode;
+        public StringField Description;
+        public StringField SubjectType;
+       
     }
 }

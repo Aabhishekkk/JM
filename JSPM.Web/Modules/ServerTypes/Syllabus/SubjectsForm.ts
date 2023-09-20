@@ -2,11 +2,14 @@
 import { initFormType } from "@serenity-is/corelib/q";
 
 export interface SubjectsForm {
+    SubjectCode: StringEditor;
     SubjectName: StringEditor;
     BranchId: IntegerEditor;
     AcademicYearId: IntegerEditor;
     SemesterId: IntegerEditor;
     Priority: StringEditor;
+    Description: StringEditor;
+    SubjectType: StringEditor;
 }
 
 export class SubjectsForm extends PrefixedContext {
@@ -23,11 +26,14 @@ export class SubjectsForm extends PrefixedContext {
             var w1 = IntegerEditor;
 
             initFormType(SubjectsForm, [
+                'SubjectCode', w0,
                 'SubjectName', w0,
                 'BranchId', w1,
                 'AcademicYearId', w1,
                 'SemesterId', w1,
-                'Priority', w0
+                'Priority', w0,
+                'Description', w0,
+                'SubjectType', w0
             ]);
         }
     }

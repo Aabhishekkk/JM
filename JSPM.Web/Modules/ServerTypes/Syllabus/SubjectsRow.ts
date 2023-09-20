@@ -8,6 +8,9 @@ export interface SubjectsRow {
     SemesterId?: number;
     Priority?: string;
     BranchName?: string;
+    SubjectCode?: string;
+    Description?: string;
+    SubjectType?: string;
 }
 
 export abstract class SubjectsRow {

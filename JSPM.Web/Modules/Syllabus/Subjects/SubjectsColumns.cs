@@ -10,9 +10,16 @@ public class SubjectsColumns
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
     [EditLink]
+
+    public string SubjectCode { get; set; }
     public string SubjectName { get; set; }
     public string BranchName { get; set; }
     public int AcademicYearId { get; set; }
     public int SemesterId { get; set; }
     public string Priority { get; set; }
+
+    public string Description { get; set; }
+
+    public string SubjectType { get; set; }
+
 }
