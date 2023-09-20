@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace JSPM.Syllabus;
 
-[ConnectionKey("Default"), Module("Syllabus"), TableName("[Syllabus].[Chapters]")]
+[ConnectionKey("Default"), Module("Syllabus"), TableName("[dbo].[Chapters]")]
 [DisplayName("Chapters"), InstanceName("Chapters")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
@@ -20,7 +20,7 @@ public sealed class ChaptersRow : Row<ChaptersRow.RowFields>, IIdRow, INameRow
         set => fields.Id[this] = value;
     }
 
-    [DisplayName("Subject"), ForeignKey("[Syllabus].[Subjects]", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectName))]
+    [DisplayName("Subject"), ForeignKey("[dbo].[Subjects]", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectName))]
     public int? SubjectId
     {
         get => fields.SubjectId[this];

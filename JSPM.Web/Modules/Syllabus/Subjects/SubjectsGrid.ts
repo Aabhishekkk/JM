@@ -1,5 +1,6 @@
 import { Decorators, EntityGrid } from '@serenity-is/corelib';
 import { SubjectsColumns, SubjectsRow, SubjectsService } from '../../ServerTypes/Syllabus';
+import { SubjectExcelImportDialog } from './SubjectExcelImportDialog';
 import { SubjectsDialog } from './SubjectsDialog';
 
 @Decorators.registerClass('JSPM.Syllabus.SubjectsGrid')
@@ -12,6 +13,7 @@ export class SubjectsGrid extends EntityGrid<SubjectsRow, any> {
     constructor(container: JQuery) {
         super(container);
     }
+   
     protected getButtons() {
         var buttons = super.getButtons();
         buttons.push({
@@ -30,4 +32,5 @@ export class SubjectsGrid extends EntityGrid<SubjectsRow, any> {
         });
         return buttons;
     }
+
 }
