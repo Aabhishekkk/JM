@@ -110,7 +110,7 @@ public class SemestersEndpoint : ServiceEndpoint
                     continue;
                 }
 
-               /* string AcademicYearId = Convert.ToString(worksheet.Cells[row, 2].Value ?? "").Trim();
+                string AcademicYearId = Convert.ToString(worksheet.Cells[row, 2].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(AcademicYearId))
                 {
                     var AcademicMaster = uow.Connection.TryFirst<AcademicYearsRow>(AcademicYearsRow.Fields.AcademicYear == AcademicYearId);
@@ -124,7 +124,7 @@ public class SemestersEndpoint : ServiceEndpoint
                 }
 
                 
-                Row.Index = Convert.ToInt32(worksheet.Cells[row, 3].Value ?? null);*/
+                Row.Index = Convert.ToInt32(worksheet.Cells[row, 3].Value ?? null);
 
 
 

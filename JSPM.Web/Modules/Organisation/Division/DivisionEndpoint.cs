@@ -1,3 +1,4 @@
+using Azure;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
 using Serenity.Data;
@@ -39,33 +40,9 @@ public class DivisionEndpoint : ServiceEndpoint
     }
 
     [HttpPost]
-    public RetrieveResponse<MyRow> Retrieve(IDbConnection connection, RetrieveRequest request,
-        [FromServices] IDivisionRetrieveHandler handler)
-    {
-        return handler.Retrieve(connection, request);
-    }
-
-    [HttpPost, AuthorizeList(typeof(MyRow))]
-    public ListResponse<MyRow> List(IDbConnection connection, ListRequest request,
-        [FromServices] IDivisionListHandler handler)
-    {
-        return handler.List(connection, request);
-    }
-
-    [HttpPost, AuthorizeList(typeof(MyRow))]
-    public FileContentResult ListExcel(IDbConnection connection, ListRequest request,
-        [FromServices] IDivisionListHandler handler,
-        [FromServices] IExcelExporter exporter)
-    {
-        var data = List(connection, request, handler).Entities;
-        var bytes = exporter.Export(data, typeof(Columns.DivisionColumns), request.ExportColumns);
-        return ExcelContentResult.Create(bytes, "DivisionList_" +
-            DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".xlsx");
-    }
-    [HttpPost]
     public ExcelImportResponse ExcelImport(IUnitOfWork uow, ExcelImportRequest request,
-    [FromServices] IUploadStorage uploadStorage,
-    [FromServices] IDivisionSaveHandler handler)
+   [FromServices] IUploadStorage uploadStorage,
+   [FromServices] IDivisionSaveHandler handler)
     {
 
         if (request is null)
@@ -105,32 +82,29 @@ public class DivisionEndpoint : ServiceEndpoint
                 Row.DivisionName = Convert.ToString(worksheet.Cells[row, 1].Value ?? "").Trim();
                 if (string.IsNullOrEmpty(Row.DivisionName))
                 {
-                    response.ErrorList.Add("Error On Row " + row + ": DivisionName Not found");
+                    response.ErrorList.Add("Error On Row " + row + ": InstituteName Not found");
                     continue;
                 }
-
-               
 
                 string InstituteId = Convert.ToString(worksheet.Cells[row, 2].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(InstituteId))
                 {
-                    var CourseMaster = uow.Connection.TryFirst<InstituteRow>(InstituteRow.Fields.InstituteName == InstituteId);
-                    if (CourseMaster != null)
-                        Row.InstituteId = CourseMaster.Id;
+                    var IMaster = uow.Connection.TryFirst<InstituteRow>(InstituteRow.Fields.InstituteName == InstituteId);
+                    if (IMaster != null)
+                        Row.InstituteId = IMaster.Id;
                     else
                     {
                         response.ErrorList.Add("Error On Row " + row + ": Invalid InstituteId!");
                         continue;
                     }
                 }
-               
 
                 string BranchId = Convert.ToString(worksheet.Cells[row, 3].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(BranchId))
                 {
-                    var CourseMaster = uow.Connection.TryFirst<BranchesRow>(BranchesRow.Fields.BranchName == BranchId);
-                    if (CourseMaster != null)
-                        Row.BranchId = CourseMaster.Id;
+                    var BMaster = uow.Connection.TryFirst<BranchesRow>(BranchesRow.Fields.BranchName == BranchId);
+                    if (BMaster != null)
+                        Row.BranchId = BMaster.Id;
                     else
                     {
                         response.ErrorList.Add("Error On Row " + row + ": Invalid BranchId!");
@@ -138,36 +112,51 @@ public class DivisionEndpoint : ServiceEndpoint
                     }
                 }
 
-
                 string DepartmentId = Convert.ToString(worksheet.Cells[row, 4].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(DepartmentId))
                 {
-                    var CourseMaster = uow.Connection.TryFirst<DepartmentsRow>(DepartmentsRow.Fields.DepartmentName == DepartmentId);
-                    if (CourseMaster != null)
-                        Row.DepartmentId = CourseMaster.Id;
+                    var DMaster = uow.Connection.TryFirst<DepartmentsRow>(DepartmentsRow.Fields.DepartmentName == DepartmentId);
+                    if (DMaster != null)
+                        Row.DepartmentId = DMaster.Id;
                     else
                     {
                         response.ErrorList.Add("Error On Row " + row + ": Invalid DepartmentId!");
                         continue;
                     }
                 }
-
-                /*Row.AcademicYearsId = Convert.ToInt32(worksheet.Cells[row, 5].Value ?? null);
+                string AcademicYearId = Convert.ToString(worksheet.Cells[row, 5].Value ?? "").Trim();
+                if (!string.IsNullOrEmpty(AcademicYearId))
+                {
+                    var AMaster = uow.Connection.TryFirst<AcademicYearsRow>(AcademicYearsRow.Fields.AcademicYear == AcademicYearId);
+                    if (AMaster != null)
+                        Row.DepartmentId = AMaster.Id;
+                    else
+                    {
+                        response.ErrorList.Add("Error On Row " + row + ": Invalid AcademicYearId!");
+                        continue;
+                    }
+                }
 
                 string SemesterId = Convert.ToString(worksheet.Cells[row, 6].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(SemesterId))
                 {
-                    var CourseMaster = uow.Connection.TryFirst<SemestersRow>(SemestersRow.Fields.Semester == SemesterId);
-                    if (CourseMaster != null)
-                        Row.SemesterId = CourseMaster.Id;
+                    var AMaster = uow.Connection.TryFirst<SemestersRow>(SemestersRow.Fields.Semester == SemesterId);
+                    if (AMaster != null)
+                        Row.DepartmentId = AMaster.Id;
                     else
                     {
                         response.ErrorList.Add("Error On Row " + row + ": Invalid SemesterId!");
                         continue;
                     }
                 }
+
+
+
+
                 Row.StartDate = Convert.ToDateTime(worksheet.Cells[row, 7].Value ?? null);
-                Row.EndDate = Convert.ToDateTime(worksheet.Cells[row, 8].Value ?? null);*/
+                Row.EndDate = Convert.ToDateTime(worksheet.Cells[row, 8].Value ?? null);
+
+
 
 
                 uow.Connection.Insert(Row);
@@ -183,4 +172,8 @@ public class DivisionEndpoint : ServiceEndpoint
         }
         return response;
     }
+
+
+
+
 }
