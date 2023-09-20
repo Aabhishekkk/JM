@@ -7,7 +7,7 @@ export interface SubjectsForm {
     BranchId: IntegerEditor;
     AcademicYearId: IntegerEditor;
     SemesterId: IntegerEditor;
-    Priority: StringEditor;
+    Priority: IntegerEditor;
     Description: StringEditor;
     SubjectType: StringEditor;
 }
@@ -31,7 +31,7 @@ export class SubjectsForm extends PrefixedContext {
                 'BranchId', w1,
                 'AcademicYearId', w1,
                 'SemesterId', w1,
-                'Priority', w0,
+                'Priority', w1,
                 'Description', w0,
                 'SubjectType', w0
             ]);

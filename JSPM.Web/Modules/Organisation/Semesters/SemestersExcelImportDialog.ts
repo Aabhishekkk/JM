@@ -46,4 +46,4 @@ export class SemestersExcelImportDialog extends PropertyDialog<any, any>{
             }
         ];
     }
-}
+}

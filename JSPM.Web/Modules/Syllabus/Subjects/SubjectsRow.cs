@@ -51,7 +51,7 @@ public sealed class SubjectsRow : Row<SubjectsRow.RowFields>, IIdRow, INameRow
     }
 
     [DisplayName("Priority"), Size(50)]
-    public string Priority
+    public short? Priority
     {
         get => fields.Priority[this];
         set => fields.Priority[this] = value;
@@ -93,7 +93,7 @@ public sealed class SubjectsRow : Row<SubjectsRow.RowFields>, IIdRow, INameRow
         public Int32Field BranchId;
         public Int32Field AcademicYearId;
         public Int32Field SemesterId;
-        public StringField Priority;
+        public Int16Field Priority;
         public StringField BranchName;
         public StringField SubjectCode;
         public StringField Description;

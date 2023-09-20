@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System.ComponentModel;
 
 namespace JSPM.Syllabus.Columns;
@@ -16,7 +16,7 @@ public class SubjectsColumns
     public string BranchName { get; set; }
     public int AcademicYearId { get; set; }
     public int SemesterId { get; set; }
-    public string Priority { get; set; }
+    public short Priority { get; set; }
 
     public string Description { get; set; }
 

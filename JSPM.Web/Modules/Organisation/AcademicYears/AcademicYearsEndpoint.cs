@@ -103,7 +103,8 @@ public class AcademicYearsEndpoint : ServiceEndpoint
                 MyRow Row = new MyRow();
 
 
-                Row.AcademicYear = Convert.ToString(worksheet.Cells[row, 1].Value ?? null);
+                
+                Row.AcademicYear = Convert.ToString(worksheet.Cells[row, 1].Value ?? "").Trim();
 
 
                 Row.Index = Convert.ToInt32(worksheet.Cells[row, 2].Value ?? null);

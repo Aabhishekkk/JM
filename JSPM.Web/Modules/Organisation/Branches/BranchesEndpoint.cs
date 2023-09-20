@@ -124,7 +124,7 @@ public class BranchesEndpoint : ServiceEndpoint
                         Row.InstituteId = CourseMaster.Id;
                     else
                     {
-                        response.ErrorList.Add("Error On Row " + row + ": Invalid Course!");
+                        response.ErrorList.Add("Error On Row " + row + ": Invalid InstituteId!");
                         continue;
                     }
                 }
@@ -138,7 +138,7 @@ public class BranchesEndpoint : ServiceEndpoint
                         Row.DepartmentId = CourseMaster.Id;
                     else
                     {
-                        response.ErrorList.Add("Error On Row " + row + ": Invalid Course!");
+                        response.ErrorList.Add("Error On Row " + row + ": Invalid DepartmentId");
                         continue;
                     }
                 }

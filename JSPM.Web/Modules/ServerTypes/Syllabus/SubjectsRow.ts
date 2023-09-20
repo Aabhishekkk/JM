@@ -6,7 +6,7 @@ export interface SubjectsRow {
     BranchId?: number;
     AcademicYearId?: number;
     SemesterId?: number;
-    Priority?: string;
+    Priority?: number;
     BranchName?: string;
     SubjectCode?: string;
     Description?: string;

@@ -1,6 +1,8 @@
 using JSPM.Organisation;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using OfficeOpenXml;
+using Serenity;
 using Serenity.Data;
 using Serenity.Extensions;
 using Serenity.Reporting;
@@ -152,31 +154,24 @@ public class SubjectsEndpoint : ServiceEndpoint
                     var SemMaster =
                    uow.Connection.TryFirst<SemestersRow>(SemestersRow.Fields.Semester == SemId);
                     if (SemMaster != null)
-                        Row.Id = SemMaster.Id;
+                        Row.SemesterId = SemMaster.Id;
                     else
+
                     {
                         response.ErrorList.Add("Error On Row " + row + ": Invalid SemID!");
                         continue;
                     }
                 }
-                Row.Priority = Convert.ToString(worksheet.Cells[row, 5].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.Priority))
-                {
-                    response.ErrorList.Add("Error On Row " + row + ": Priority Not found");
-                    continue;
-                }
+                Row.Priority = Convert.ToInt16(worksheet.Cells[row, 5].Value ?? "");
+                
                 Row.Description = Convert.ToString(worksheet.Cells[row, 6].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.Priority))
+                if (string.IsNullOrEmpty(Row.Description))
                 {
                     response.ErrorList.Add("Error On Row " + row + ": Description Not found");
                     continue;
                 }
                 Row.SubjectType = Convert.ToString(worksheet.Cells[row, 7].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.SubjectType))
-                {
-                    response.ErrorList.Add("Error On Row " + row + ": SubjectType Not found");
-                    continue;
-                }
+               
                 
                 uow.Connection.Insert(Row);
 

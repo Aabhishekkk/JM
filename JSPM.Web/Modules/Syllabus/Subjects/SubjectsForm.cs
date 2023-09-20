@@ -11,7 +11,7 @@ public class SubjectsForm
     public int BranchId { get; set; }
     public int AcademicYearId { get; set; }
     public int SemesterId { get; set; }
-    public string Priority { get; set; }
+    public short Priority { get; set; }
 
     public string Description { get; set; }
 
