@@ -1,4 +1,5 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
+using System;
 using System.ComponentModel;
 
 namespace JSPM.Organisation.Columns;
@@ -9,6 +10,6 @@ public class AcademicYearsColumns
 {
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
-    public int AcademicYear { get; set; }
+    public String AcademicYear { get; set; }
     public int Index { get; set; }
 }

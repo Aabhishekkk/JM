@@ -2,7 +2,7 @@
 
 export interface SemestersRow {
     Id?: number;
-    Semester?: number;
+    Semester?: string;
     AcademicYearsId?: number;
     Index?: number;
 }

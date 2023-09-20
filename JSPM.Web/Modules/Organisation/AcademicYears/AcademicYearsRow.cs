@@ -1,11 +1,12 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
+using System;
 using System.ComponentModel;
 
 namespace JSPM.Organisation;
 
-[ConnectionKey("Default"), Module("Organisation"), TableName("[organisation].[AcademicYears ]")]
+[ConnectionKey("Default"), Module("Organisation"), TableName("[organisation].[AcademicYears]")]
 [DisplayName("Academic Years"), InstanceName("Academic Years")]
 [ReadPermission("Administration:General")]
 [ModifyPermission("Administration:General")]
@@ -19,7 +20,7 @@ public sealed class AcademicYearsRow : Row<AcademicYearsRow.RowFields>, IIdRow
     }
 
     [DisplayName("Academic Year"), Column("Academic Year"), NotNull]
-    public int? AcademicYear
+    public string AcademicYear
     {
         get => fields.AcademicYear[this];
         set => fields.AcademicYear[this] = value;
@@ -35,7 +36,7 @@ public sealed class AcademicYearsRow : Row<AcademicYearsRow.RowFields>, IIdRow
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
-        public Int32Field AcademicYear;
+        public StringField AcademicYear;
         public Int32Field Index;
 
     }
