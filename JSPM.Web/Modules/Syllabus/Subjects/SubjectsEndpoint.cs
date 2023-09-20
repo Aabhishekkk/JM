@@ -145,10 +145,23 @@ public class SubjectsEndpoint : ServiceEndpoint
                                 continue;
                             }
                         }
-                        
-                
 
-                string SemId = Convert.ToString(worksheet.Cells[row, 4].Value ?? "").Trim();
+                string AcademicYearID = Convert.ToString(worksheet.Cells[row, 4].Value ?? "").Trim(); // Change the column index to 1
+                if (!string.IsNullOrEmpty(AcademicYearID))
+                {
+                    var AMaster = uow.Connection.TryFirst<AcademicYearsRow>(AcademicYearsRow.Fields.AcademicYear == AcademicYearID);
+                    if (AMaster != null)
+                        Row.AcademicYearId = AMaster.Id; // Change "CourseId" to "BranchId"
+                    else
+                    {
+                        response.ErrorList.Add("Error On Row " + row + ": Invalid Branch!");
+                        continue;
+                    }
+                }
+
+
+
+                string SemId = Convert.ToString(worksheet.Cells[row, 5].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(SemId))
                 {
                     var SemMaster =
@@ -162,15 +175,15 @@ public class SubjectsEndpoint : ServiceEndpoint
                         continue;
                     }
                 }
-                Row.Priority = Convert.ToInt16(worksheet.Cells[row, 5].Value ?? "");
+                Row.Priority = Convert.ToInt16(worksheet.Cells[row, 6].Value ?? "");
                 
-                Row.Description = Convert.ToString(worksheet.Cells[row, 6].Value ?? "").Trim();
+                Row.Description = Convert.ToString(worksheet.Cells[row, 7].Value ?? "").Trim();
                 if (string.IsNullOrEmpty(Row.Description))
                 {
                     response.ErrorList.Add("Error On Row " + row + ": Description Not found");
                     continue;
                 }
-                Row.SubjectType = Convert.ToString(worksheet.Cells[row, 7].Value ?? "").Trim();
+                Row.SubjectType = Convert.ToString(worksheet.Cells[row, 8].Value ?? "").Trim();
                
                 
                 uow.Connection.Insert(Row);
