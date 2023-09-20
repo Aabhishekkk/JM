@@ -1,6 +1,8 @@
 using JSPM.Organisation;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using OfficeOpenXml;
+using Serenity;
 using Serenity.Data;
 using Serenity.Extensions;
 using Serenity.Reporting;
@@ -143,40 +145,46 @@ public class SubjectsEndpoint : ServiceEndpoint
                                 continue;
                             }
                         }
-                        
-                
 
-                string SemId = Convert.ToString(worksheet.Cells[row, 4].Value ?? "").Trim();
+                string AcademicYearID = Convert.ToString(worksheet.Cells[row, 4].Value ?? "").Trim(); // Change the column index to 1
+                if (!string.IsNullOrEmpty(AcademicYearID))
+                {
+                    var AMaster = uow.Connection.TryFirst<AcademicYearsRow>(AcademicYearsRow.Fields.AcademicYear == AcademicYearID);
+                    if (AMaster != null)
+                        Row.AcademicYearId = AMaster.Id; // Change "CourseId" to "BranchId"
+                    else
+                    {
+                        response.ErrorList.Add("Error On Row " + row + ": Invalid Branch!");
+                        continue;
+                    }
+                }
+
+
+
+                string SemId = Convert.ToString(worksheet.Cells[row, 5].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(SemId))
                 {
                     var SemMaster =
                    uow.Connection.TryFirst<SemestersRow>(SemestersRow.Fields.Semester == SemId);
                     if (SemMaster != null)
-                        Row.Id = SemMaster.Id;
+                        Row.SemesterId = SemMaster.Id;
                     else
+
                     {
                         response.ErrorList.Add("Error On Row " + row + ": Invalid SemID!");
                         continue;
                     }
                 }
-                Row.Priority = Convert.ToString(worksheet.Cells[row, 5].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.Priority))
-                {
-                    response.ErrorList.Add("Error On Row " + row + ": Priority Not found");
-                    continue;
-                }
-                Row.Description = Convert.ToString(worksheet.Cells[row, 6].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.Priority))
+                Row.Priority = Convert.ToInt16(worksheet.Cells[row, 6].Value ?? "");
+                
+                Row.Description = Convert.ToString(worksheet.Cells[row, 7].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.Description))
                 {
                     response.ErrorList.Add("Error On Row " + row + ": Description Not found");
                     continue;
                 }
-                Row.SubjectType = Convert.ToString(worksheet.Cells[row, 7].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.SubjectType))
-                {
-                    response.ErrorList.Add("Error On Row " + row + ": SubjectType Not found");
-                    continue;
-                }
+                Row.SubjectType = Convert.ToString(worksheet.Cells[row, 8].Value ?? "").Trim();
+               
                 
                 uow.Connection.Insert(Row);
 

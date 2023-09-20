@@ -66,7 +66,7 @@ public class SemestersEndpoint : ServiceEndpoint
     [HttpPost]
     public ExcelImportResponse ExcelImport(IUnitOfWork uow, ExcelImportRequest request,
     [FromServices] IUploadStorage uploadStorage,
-    [FromServices] IInstituteSaveHandler handler)
+    [FromServices] ISemestersSaveHandler handler)
     {
 
         if (request is null)
@@ -104,11 +104,7 @@ public class SemestersEndpoint : ServiceEndpoint
                 MyRow Row = new MyRow();
 
                 Row.Semester = Convert.ToString(worksheet.Cells[row, 1].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.Semester))
-                {
-                    response.ErrorList.Add("Error On Row " + row + ": Semester Not found");
-                    continue;
-                }
+               
 
                 string AcademicYearId = Convert.ToString(worksheet.Cells[row, 2].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(AcademicYearId))
@@ -123,7 +119,7 @@ public class SemestersEndpoint : ServiceEndpoint
                     }
                 }
 
-                
+
                 Row.Index = Convert.ToInt32(worksheet.Cells[row, 3].Value ?? null);
 
 
@@ -141,5 +137,5 @@ public class SemestersEndpoint : ServiceEndpoint
         }
         return response;
     }
+}
 
-} 

@@ -120,12 +120,7 @@ public class ChaptersEndpoint : ServiceEndpoint
                     response.ErrorList.Add("Error On Row " + row + ": SubjectName Not found");
                     continue;
                 }
-                Row.SubjectName = Convert.ToString(worksheet.Cells[row, 4].Value ?? "").Trim();
-                if (string.IsNullOrEmpty(Row.SubjectName))
-                {
-                    response.ErrorList.Add("Error On Row " + row + ": SubjectName Not found");
-                    continue;
-                }Row.Index = Convert.ToInt32(worksheet.Cells[row, 5].Value ?? "");
+                Row.Index = Convert.ToInt32(worksheet.Cells[row, 4].Value ?? "");
                 
                 uow.Connection.Insert(Row);
 
