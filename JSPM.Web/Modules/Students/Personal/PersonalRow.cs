@@ -18,6 +18,7 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
 
 
     [DisplayName("Id"), Identity, IdProperty]
+    [SortOrder(1, descending: false)]
     public int? Id
     {
         get => fields.Id[this];
@@ -53,7 +54,7 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
     }
 
     [DisplayName("Mobile Number"), Column("Mobile number"), NotNull]
-    public int? MobileNumber
+    public string MobileNumber
     {
         get => fields.MobileNumber[this];
         set => fields.MobileNumber[this] = value;
@@ -99,6 +100,13 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
     {
         get => fields.CurrentCity[this];
         set => fields.CurrentCity[this] = value;
+    }
+
+    [DisplayName("Current State"), Column("CurrentState"), Size(100), NotNull]
+    public string CurrentState
+    {
+        get => fields.CurrentState[this];
+        set => fields.CurrentState[this] = value;
     }
 
     [DisplayName("Gender"), Size(50), NotNull]
@@ -151,7 +159,7 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
         set => fields.BranchName[this] = value;
     }
 
-    [DisplayName("Division"), Column("Division_Id"), ForeignKey("[organisation].[Division]", "Id"), LeftJoin(jDivision), TextualField(nameof(DivisionName))]
+    [DisplayName("Division"), Column("DivisionId"), ForeignKey("[organisation].[Division]", "Id"), LeftJoin(jDivision), TextualField(nameof(DivisionName))]
     public int? DivisionId
     {
         get => fields.DivisionId[this];
@@ -169,16 +177,19 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
     {
         public Int32Field Id;
         public StringField FirstName;
-        public StringField LastName;
+        
         public StringField MiddleName;
+        public StringField LastName;
         public StringField Email;
-        public Int32Field MobileNumber;
+        public StringField MobileNumber;
         public StringField Pnr;
         public StringField PermanentAddress;
         public StringField City;
+      
         public Int32Field Pin;
         public StringField CurrentAddress;
         public StringField CurrentCity;
+        public StringField CurrentState;
         public StringField Gender;
         public DateTimeField Dob;
         public DateTimeField AdmissionDate;

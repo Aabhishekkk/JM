@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 using System.ComponentModel;
 
@@ -17,6 +17,6 @@ public class DivisionColumns
     public int SemesterId { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    [EditLink]
+    
     public string DivisionName { get; set; }
 }

@@ -10,6 +10,7 @@ export interface DivisionForm {
     StartDate: DateEditor;
     EndDate: DateEditor;
     DivisionName: StringEditor;
+    DivisionId: IntegerEditor;
 }
 
 export class DivisionForm extends PrefixedContext {
@@ -34,7 +35,8 @@ export class DivisionForm extends PrefixedContext {
                 'SemesterId', w0,
                 'StartDate', w1,
                 'EndDate', w1,
-                'DivisionName', w2
+                'DivisionName', w2,
+                'DivisionId', w0
             ]);
         }
     }

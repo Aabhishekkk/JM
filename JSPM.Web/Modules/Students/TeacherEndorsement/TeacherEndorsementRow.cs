@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -21,7 +21,7 @@ public sealed class TeacherEndorsementRow : Row<TeacherEndorsementRow.RowFields>
     }
 
     [DisplayName("Teacher Id")]
-    public int? TeacherId
+    public string? TeacherId
     {
         get => fields.TeacherId[this];
         set => fields.TeacherId[this] = value;
@@ -58,7 +58,7 @@ public sealed class TeacherEndorsementRow : Row<TeacherEndorsementRow.RowFields>
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
-        public Int32Field TeacherId;
+        public StringField TeacherId;
         public Int32Field StudentId;
         public StringField Title;
         public StringField Details;

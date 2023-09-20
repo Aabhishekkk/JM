@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System;
 
 namespace JSPM.Organisation.Forms;
@@ -15,4 +15,5 @@ public class DivisionForm
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public string DivisionName { get; set; }
+    public int DivisionId { get; set; }
 }

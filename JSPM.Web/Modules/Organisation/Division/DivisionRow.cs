@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -19,6 +19,7 @@ public sealed class DivisionRow : Row<DivisionRow.RowFields>, IIdRow, INameRow
     const string jSemester = nameof(jSemester);
 
     [DisplayName("Id"), Identity, IdProperty]
+    [SortOrder(1, descending: false)]
     public int? Id
     {
         get => fields.Id[this];
@@ -113,7 +114,7 @@ public sealed class DivisionRow : Row<DivisionRow.RowFields>, IIdRow, INameRow
         public DateTimeField StartDate;
         public DateTimeField EndDate;
         public StringField DivisionName;
-
+        
         public StringField InstituteName;
         public StringField BranchName;
         public StringField DepartmentName;

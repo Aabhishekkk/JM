@@ -1,8 +1,7 @@
 import { Decorators, EditorUtils, PropertyDialog } from '@serenity-is/corelib';
 import { DialogButton, Authorization, isEmptyOrNull, notifyError, notifyInfo }
     from '@serenity-is/corelib/q';
-import { TeacherEndorsementExcelImportForm } from
-    '../../ServerTypes/TeacherEndorsement';
+import { TeacherEndorsementExcelImportForm } from '../../ServerTypes/TeacherEndorsement';
 import { TeacherEndorsementService } from '../../ServerTypes/Students/TeacherEndorsementService';
 @Decorators.registerClass('JSPM.TeacherEndorsement.TeacherEndorsementExcelImportDialog')
 export class TeacherEndorsementExcelImportDialog extends PropertyDialog<any, any>{
@@ -20,7 +19,7 @@ export class TeacherEndorsementExcelImportDialog extends PropertyDialog<any, any
             {
                 text: 'Import',
                 click: () => {
-                    /*debugger;*/
+                    debugger;
                     if (!this.validateBeforeSave())
                         return;
                     if (this.form.FileName.value == null ||
@@ -28,17 +27,17 @@ export class TeacherEndorsementExcelImportDialog extends PropertyDialog<any, any
                         notifyError("Please select a file!");
                         return;
                     }
-                    TeacherEndorsementService.ExcelImport({
+                    /*TeacherEndorsementService.ExcelImport({
                         FileName: this.form.FileName.value.Filename,
                     }, response => {
                         notifyInfo(
                             'Inserted: ' + (response.Inserted || 0));
-                        if   (response.ErrorList != null &&
+                        if (response.ErrorList != null &&
                             response.ErrorList.length > 0) {
                             notifyError(response.ErrorList.join(',\r\n '));
                         }
                         this.dialogClose();
-                    });
+                    });*/
                 },
             },
             {

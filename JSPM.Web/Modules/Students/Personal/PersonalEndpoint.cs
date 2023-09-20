@@ -1,6 +1,8 @@
 using JSPM.Organisation;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using OfficeOpenXml;
+using Serenity;
 using Serenity.Data;
 using Serenity.Extensions;
 using Serenity.Reporting;
@@ -109,53 +111,87 @@ public class PersonalEndpoint : ServiceEndpoint
                     response.ErrorList.Add("Error On Row " + row + ": FirstName Not found");
                     continue;
                 }
+                Row.MiddleName = Convert.ToString(worksheet.Cells[row, 2].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.MiddleName))
+                {
+                    response.ErrorList.Add("Error On Row " + row + ": MiddleName Not found");
+                    continue;
+                }
+                Row.LastName = Convert.ToString(worksheet.Cells[row, 3].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.LastName))
+                {
+                    response.ErrorList.Add("Error On Row " + row + ": LastName Not found");
+                    continue;
+                }
 
-                Row.Email = Convert.ToString(worksheet.Cells[row, 2].Value ?? "").Trim();
+
+                Row.Email = Convert.ToString(worksheet.Cells[row, 4].Value ?? "").Trim();
                 if (string.IsNullOrEmpty(Row.Email))
                 {
                     response.ErrorList.Add("Error On Row " + row + ": Email Not found");
                     continue;
                 }
+                Row.MobileNumber = Convert.ToString(worksheet.Cells[row, 5].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.MobileNumber))
+                {
+                    response.ErrorList.Add("Error On Row " + row + ": MobileNumber Not found");
+                    continue;
+                }
 
-                Row.MobileNumber = Convert.ToInt32(worksheet.Cells[row, 3].Value ?? null);
-                Row.Pnr = Convert.ToString(worksheet.Cells[row, 4].Value ?? "").Trim();
+                Row.Pnr = Convert.ToString(worksheet.Cells[row, 6].Value ?? "").Trim();
                 if (string.IsNullOrEmpty(Row.Pnr))
                 {
                     response.ErrorList.Add("Error On Row " + row + ": Pnr Not found");
                     continue;
                 }
-                Row.PermanentAddress = Convert.ToString(worksheet.Cells[row, 5].Value ?? "").Trim();
+                Row.PermanentAddress = Convert.ToString(worksheet.Cells[row, 7].Value ?? "").Trim();
                 if (string.IsNullOrEmpty(Row.PermanentAddress))
                 {
                     response.ErrorList.Add("Error On Row " + row + ": PermanentAddress Not found");
                     continue;
                 }
-                Row.City = Convert.ToString(worksheet.Cells[row, 6].Value ?? "").Trim();
+                Row.City = Convert.ToString(worksheet.Cells[row, 8].Value ?? "").Trim();
                 if (string.IsNullOrEmpty(Row.City))
                 {
                     response.ErrorList.Add("Error On Row " + row + ": City Not found");
                     continue;
                 }
 
-                Row.Pin = Convert.ToInt32(worksheet.Cells[row, 7].Value ?? null);
-                Row.CurrentAddress = Convert.ToString(worksheet.Cells[row, 8].Value ?? "").Trim();
+
+
+                Row.Pin = Convert.ToInt32(worksheet.Cells[row, 9].Value ?? null);
+
+                Row.CurrentAddress = Convert.ToString(worksheet.Cells[row, 10].Value ?? "").Trim();
                 if (string.IsNullOrEmpty(Row.CurrentAddress))
                 {
                     response.ErrorList.Add("Error On Row " + row + ":  CurrentAddress Not found");
                     continue;
                 }
-                Row.Gender = Convert.ToString(worksheet.Cells[row, 9].Value ?? "").Trim();
+                Row.CurrentCity = Convert.ToString(worksheet.Cells[row, 11].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.CurrentCity))
+                {
+                    response.ErrorList.Add("Error On Row " + row + ":  CurrentCity Not found");
+                    continue;
+                }
+                Row.CurrentState = Convert.ToString(worksheet.Cells[row, 12].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.CurrentState))
+                {
+                    response.ErrorList.Add("Error On Row " + row + ":  CurrentState Not found");
+                    continue;
+                }
+
+                Row.Gender = Convert.ToString(worksheet.Cells[row, 13].Value ?? "").Trim();
                 if (string.IsNullOrEmpty(Row.Gender))
                 {
                     response.ErrorList.Add("Error On Row " + row + ":  Gender Not found");
                     continue;
                 }
-                Row.Dob = Convert.ToDateTime(worksheet.Cells[row, 10].Value ?? 0);
+                Row.Dob= Convert.ToDateTime(worksheet.Cells[row, 14].Value ?? 0);
 
-                Row.AdmissionDate = Convert.ToDateTime(worksheet.Cells[row, 11].Value ?? 0);
+                Row.AdmissionDate = Convert.ToDateTime(worksheet.Cells[row, 15].Value ?? 0);
 
 
-                string DepartmentId = Convert.ToString(worksheet.Cells[row, 12].Value ?? "").Trim();
+                string DepartmentId = Convert.ToString(worksheet.Cells[row, 16].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(DepartmentId))
                 {
                     var DepartmentMaster = uow.Connection.TryFirst<DepartmentsRow>(DepartmentsRow.Fields.DepartmentName == DepartmentId);
@@ -167,7 +203,7 @@ public class PersonalEndpoint : ServiceEndpoint
                         continue;
                     }
                 }
-                string BranchId = Convert.ToString(worksheet.Cells[row, 13].Value ?? "").Trim();
+                string BranchId = Convert.ToString(worksheet.Cells[row, 17].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(DepartmentId))
                 {
                     var BranchMaster = uow.Connection.TryFirst<BranchesRow>(BranchesRow.Fields.BranchName == BranchId);
@@ -180,7 +216,7 @@ public class PersonalEndpoint : ServiceEndpoint
                     }
                 }
 
-                string DivisionId = Convert.ToString(worksheet.Cells[row, 14].Value ?? "").Trim();
+                string DivisionId = Convert.ToString(worksheet.Cells[row, 18].Value ?? "").Trim();
                 if (!string.IsNullOrEmpty(DepartmentId))
                 {
                     var DivisionMaster = uow.Connection.TryFirst<DivisionRow>(DivisionRow.Fields.DivisionName == DivisionId);
@@ -192,8 +228,8 @@ public class PersonalEndpoint : ServiceEndpoint
                         continue;
                     }
                 }
-            
-           
+
+
 
 
                 uow.Connection.Insert(Row);

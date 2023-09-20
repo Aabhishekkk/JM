@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using System.ComponentModel;
 
 namespace JSPM.Students.Columns;
@@ -9,7 +9,7 @@ public class TeacherEndorsementColumns
 {
     [EditLink, DisplayName("Db.Shared.RecordId"), AlignRight]
     public int Id { get; set; }
-    public int TeacherId { get; set; }
+    public string TeacherId { get; set; }
     public string StudentFirstName { get; set; }
     [EditLink]
     public string Title { get; set; }

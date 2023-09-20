@@ -39,6 +39,24 @@ public class DivisionEndpoint : ServiceEndpoint
         return handler.Delete(uow, request);
     }
 
+    [HttpPost, AuthorizeList(typeof(MyRow))]
+    public ListResponse<MyRow> List(IDbConnection connection, ListRequest request,
+        [FromServices] IDivisionListHandler handler)
+    {
+        return handler.List(connection, request);
+    }
+
+    [HttpPost, AuthorizeList(typeof(MyRow))]
+    public FileContentResult ListExcel(IDbConnection connection, ListRequest request,
+        [FromServices] IDivisionListHandler handler,
+        [FromServices] IExcelExporter exporter)
+    {
+        var data = List(connection, request, handler).Entities;
+        var bytes = exporter.Export(data, typeof(Columns.DivisionColumns), request.ExportColumns);
+        return ExcelContentResult.Create(bytes, "DepartmentsList_" +
+            DateTime.Now.ToString("yyyyMMdd_HHmmss", CultureInfo.InvariantCulture) + ".xlsx");
+    }
+
     [HttpPost]
     public ExcelImportResponse ExcelImport(IUnitOfWork uow, ExcelImportRequest request,
    [FromServices] IUploadStorage uploadStorage,
@@ -129,7 +147,7 @@ public class DivisionEndpoint : ServiceEndpoint
                 {
                     var AMaster = uow.Connection.TryFirst<AcademicYearsRow>(AcademicYearsRow.Fields.AcademicYear == AcademicYearId);
                     if (AMaster != null)
-                        Row.DepartmentId = AMaster.Id;
+                        Row.AcademicYearsId = AMaster.Id;
                     else
                     {
                         response.ErrorList.Add("Error On Row " + row + ": Invalid AcademicYearId!");
@@ -142,7 +160,7 @@ public class DivisionEndpoint : ServiceEndpoint
                 {
                     var AMaster = uow.Connection.TryFirst<SemestersRow>(SemestersRow.Fields.Semester == SemesterId);
                     if (AMaster != null)
-                        Row.DepartmentId = AMaster.Id;
+                        Row.SemesterId = AMaster.Id;
                     else
                     {
                         response.ErrorList.Add("Error On Row " + row + ": Invalid SemesterId!");
@@ -150,14 +168,19 @@ public class DivisionEndpoint : ServiceEndpoint
                     }
                 }
 
+                string StartDateAsString = Convert.ToString(worksheet.Cells[row, 7].Value);
+                if (!string.IsNullOrEmpty(StartDateAsString))
+                {
+                    DateTime StartDate = Convert.ToDateTime(StartDateAsString);
+                    Row.StartDate = StartDate;
+                }
 
-
-
-                Row.StartDate = Convert.ToDateTime(worksheet.Cells[row, 7].Value ?? null);
-                Row.EndDate = Convert.ToDateTime(worksheet.Cells[row, 8].Value ?? null);
-
-
-
+                string EndDateAsString = Convert.ToString(worksheet.Cells[row, 8].Value);
+                if (!string.IsNullOrEmpty(EndDateAsString))
+                {
+                    DateTime EndDate = Convert.ToDateTime(EndDateAsString);
+                    Row.EndDate = EndDate;
+                }
 
                 uow.Connection.Insert(Row);
 

@@ -3,16 +3,17 @@
 export interface PersonalRow {
     Id?: number;
     FirstName?: string;
-    LastName?: string;
     MiddleName?: string;
+    LastName?: string;
     Email?: string;
-    MobileNumber?: number;
+    MobileNumber?: string;
     Pnr?: string;
     PermanentAddress?: string;
     City?: string;
     Pin?: number;
     CurrentAddress?: string;
     CurrentCity?: string;
+    CurrentState?: string;
     Gender?: string;
     Dob?: string;
     AdmissionDate?: string;

@@ -28,7 +28,7 @@ export class StudentSkillsExcelImportDialog extends PropertyDialog<any, any>{
                         notifyError("Please select a file!");
                         return;
                     }
-                    StudentsSkillsService.ExcelImport({
+                    /*StudentsSkillsService.ExcelImport({
                         FileName: this.form.FileName.value.Filename,
                     }, response => {
                         notifyInfo(
@@ -38,7 +38,7 @@ export class StudentSkillsExcelImportDialog extends PropertyDialog<any, any>{
                             notifyError(response.ErrorList.join(',\r\n '));
                         }
                         this.dialogClose();
-                    });
+                    });*/
                 },
             },
             {

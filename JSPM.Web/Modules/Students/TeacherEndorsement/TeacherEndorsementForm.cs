@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 
 namespace JSPM.Students.Forms;
 
@@ -6,7 +6,7 @@ namespace JSPM.Students.Forms;
 [BasedOnRow(typeof(TeacherEndorsementRow), CheckNames = true)]
 public class TeacherEndorsementForm
 {
-    public int TeacherId { get; set; }
+    public string TeacherId { get; set; }
     public int StudentId { get; set; }
     public string Title { get; set; }
     public string Details { get; set; }

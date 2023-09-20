@@ -3,10 +3,10 @@ import { initFormType } from "@serenity-is/corelib/q";
 
 export interface PersonalForm {
     FirstName: StringEditor;
-    LastName: StringEditor;
     MiddleName: StringEditor;
+    LastName: StringEditor;
     Email: StringEditor;
-    MobileNumber: IntegerEditor;
+    MobileNumber: StringEditor;
     Pnr: StringEditor;
     PermanentAddress: StringEditor;
     City: StringEditor;
@@ -37,10 +37,10 @@ export class PersonalForm extends PrefixedContext {
 
             initFormType(PersonalForm, [
                 'FirstName', w0,
-                'LastName', w0,
                 'MiddleName', w0,
+                'LastName', w0,
                 'Email', w0,
-                'MobileNumber', w1,
+                'MobileNumber', w0,
                 'Pnr', w0,
                 'PermanentAddress', w0,
                 'City', w0,

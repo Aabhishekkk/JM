@@ -2,7 +2,7 @@
 
 export interface TeacherEndorsementRow {
     Id?: number;
-    TeacherId?: number;
+    TeacherId?: string;
     StudentId?: number;
     Title?: string;
     Details?: string;
