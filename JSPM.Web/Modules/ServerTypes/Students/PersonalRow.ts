@@ -18,6 +18,8 @@ export interface PersonalRow {
     AdmissionDate?: string;
     DepartmentId?: number;
     BranchId?: number;
+    DivisionId?: number;
+    DivisionName?: string;
     DepartmentName?: string;
     BranchName?: string;
 }

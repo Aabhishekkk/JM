@@ -14,6 +14,8 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
 {
     const string jDepartment = nameof(jDepartment);
     const string jBranch = nameof(jBranch);
+    const string jDivision = nameof(jDivision);
+
 
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id
@@ -125,6 +127,7 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
     {
         get => fields.DepartmentId[this];
         set => fields.DepartmentId[this] = value;
+
     }
 
     [DisplayName("Branch"), Column("Branch_Id"), ForeignKey("[organisation].[Branches]", "Id"), LeftJoin(jBranch), TextualField(nameof(BranchName))]
@@ -148,6 +151,20 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
         set => fields.BranchName[this] = value;
     }
 
+    [DisplayName("Division"), Column("Division_Id"), ForeignKey("[organisation].[Division]", "Id"), LeftJoin(jDivision), TextualField(nameof(DivisionName))]
+    public int? DivisionId
+    {
+        get => fields.DivisionId[this];
+        set => fields.DivisionId[this] = value;
+
+    }
+    [DisplayName("Division Name"), Expression($"{jDivision}.[Division Name]")]
+    public string DivisionName
+    {
+        get => fields.DivisionName[this];
+        set => fields.DivisionName[this] = value;
+    }
+
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
@@ -167,7 +184,8 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
         public DateTimeField AdmissionDate;
         public Int32Field DepartmentId;
         public Int32Field BranchId;
-
+        public Int32Field DivisionId;
+        public StringField DivisionName;
         public StringField DepartmentName;
         public StringField BranchName;
     }

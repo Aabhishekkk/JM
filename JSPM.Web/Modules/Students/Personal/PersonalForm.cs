@@ -23,4 +23,5 @@ public class PersonalForm
     public DateTime AdmissionDate { get; set; }
     public int DepartmentId { get; set; }
     public int BranchId { get; set; }
+    public int DivisionId { get; set; }
 }

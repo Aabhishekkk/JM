@@ -27,4 +27,5 @@ public class PersonalColumns
     public DateTime AdmissionDate { get; set; }
     public string DepartmentName { get; set; }
     public string BranchName { get; set; }
+    public string DivisionName{ get; set; } 
 }

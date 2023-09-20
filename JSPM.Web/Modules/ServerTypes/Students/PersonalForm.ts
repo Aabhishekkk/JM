@@ -18,6 +18,7 @@ export interface PersonalForm {
     AdmissionDate: DateEditor;
     DepartmentId: IntegerEditor;
     BranchId: IntegerEditor;
+    DivisionId: IntegerEditor;
 }
 
 export class PersonalForm extends PrefixedContext {
@@ -50,7 +51,8 @@ export class PersonalForm extends PrefixedContext {
                 'Dob', w2,
                 'AdmissionDate', w2,
                 'DepartmentId', w1,
-                'BranchId', w1
+                'BranchId', w1,
+                'DivisionId', w1
             ]);
         }
     }
