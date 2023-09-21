@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -25,10 +25,18 @@ public sealed class SkillsRow : Row<SkillsRow.RowFields>, IIdRow, INameRow
         set => fields.Name[this] = value;
     }
 
+    [DisplayName("SkillCategory"), Size(300), QuickSearch]
+    public string SkillCategory
+    {
+        get => fields.SkillCategory[this];
+        set => fields.SkillCategory[this] = value;
+    }
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
         public StringField Name;
+        public StringField SkillCategory;
+
 
     }
 }

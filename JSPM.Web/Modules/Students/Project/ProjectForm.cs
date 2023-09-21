@@ -1,5 +1,5 @@
 ﻿using Serenity.ComponentModel;
-
+using System;
 namespace JSPM.Students.Forms;
 
 [FormScript("Students.Project")]
@@ -11,4 +11,7 @@ public class ProjectForm
     public string ProjectTitle { get; set; }
     public string ProjectDetails { get; set; }
     public string ProjectReport { get; set; }
+    public int DepartmentId { get; set; }
+    public int SemesterId { get; set; }
+
 }

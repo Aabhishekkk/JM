@@ -28,7 +28,7 @@ export class ProjectExcelImportDialog extends PropertyDialog<any, any>{
                         notifyError("Please select a file!");
                         return;
                     }
-                    /*ProjectService.ExcelImport({
+                    ProjectService.ExcelImport({
                         FileName: this.form.FileName.value.Filename,
                     }, response => {
                         notifyInfo(
@@ -38,7 +38,7 @@ export class ProjectExcelImportDialog extends PropertyDialog<any, any>{
                             notifyError(response.ErrorList.join(',\r\n '));
                         }
                         this.dialogClose();
-                    });*/
+                    });
                 },
             },
             {

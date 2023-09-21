@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -21,14 +21,14 @@ public sealed class StudentsSkillsRow : Row<StudentsSkillsRow.RowFields>, IIdRow
         set => fields.Id[this] = value;
     }
 
-    [DisplayName("E Skill Category"), Size(50), NotNull, QuickSearch, NameProperty]
-    public string ESkillCategory
+    [DisplayName("Skill Category"), Size(50), NotNull, QuickSearch, NameProperty]
+    public string SkillCategory
     {
-        get => fields.ESkillCategory[this];
-        set => fields.ESkillCategory[this] = value;
+        get => fields.SkillCategory[this];
+        set => fields.SkillCategory[this] = value;
     }
 
-    [DisplayName("Skill"), Column("Skill_Id"), ForeignKey("[Master].[Skills]", "Id"), LeftJoin(jSkill), TextualField(nameof(SkillName))]
+    [DisplayName("Skill"), Column("SkillId"), ForeignKey("[Master].[Skills]", "Id"), LeftJoin(jSkill), TextualField(nameof(SkillName))]
     public int? SkillId
     {
         get => fields.SkillId[this];
@@ -70,12 +70,7 @@ public sealed class StudentsSkillsRow : Row<StudentsSkillsRow.RowFields>, IIdRow
         set => fields.StudentId[this] = value;
     }
 
-    [DisplayName("Skill Category"), NotNull]
-    public short? SkillCategory
-    {
-        get => fields.SkillCategory[this];
-        set => fields.SkillCategory[this] = value;
-    }
+   
 
     [DisplayName("Skill Name"), Expression($"{jSkill}.[Name]")]
     public string SkillName
@@ -94,14 +89,14 @@ public sealed class StudentsSkillsRow : Row<StudentsSkillsRow.RowFields>, IIdRow
     public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
-        public StringField ESkillCategory;
+        public StringField SkillCategory;
         public Int32Field SkillId;
         public Int32Field Rating;
         public StringField AknowledgeBy;
         public StringField Certification;
         public StringField CertificationDetails;
         public Int32Field StudentId;
-        public Int16Field SkillCategory;
+       
 
         public StringField SkillName;
         public StringField StudentFirstName;

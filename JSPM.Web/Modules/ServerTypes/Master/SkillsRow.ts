@@ -3,6 +3,7 @@
 export interface SkillsRow {
     Id?: number;
     Name?: string;
+    SkillCategory?: string;
 }
 
 export abstract class SkillsRow {

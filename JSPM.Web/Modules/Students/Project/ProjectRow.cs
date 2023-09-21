@@ -12,6 +12,8 @@ namespace JSPM.Students;
 public sealed class ProjectRow : Row<ProjectRow.RowFields>, IIdRow, INameRow
 {
     const string jStudent = nameof(jStudent);
+    const string jDepartment = nameof(jDepartment);
+    const string jSemester = nameof(jSemester);
 
     [DisplayName("Id"), Identity, IdProperty]
     public int? Id
@@ -61,8 +63,35 @@ public sealed class ProjectRow : Row<ProjectRow.RowFields>, IIdRow, INameRow
         get => fields.StudentFirstName[this];
         set => fields.StudentFirstName[this] = value;
     }
+    [DisplayName("Department"), Column("DepartmentId"), ForeignKey("[organisation].[Departments]", "Id"), LeftJoin(jDepartment), TextualField(nameof(DepartmentName))]
+    public int? DepartmentId
+    {
+        get => fields.DepartmentId[this];
+        set => fields.DepartmentId[this] = value;
 
-    public class RowFields : RowFieldsBase
+    }
+    [DisplayName("Department Department Name"), Expression($"{jDepartment}.[Department Name]")]
+    public string DepartmentName
+    {
+        get => fields.DepartmentName[this];
+        set => fields.DepartmentName[this] = value;
+    }
+    [DisplayName("Semester"), Column("SemesterId"), ForeignKey("[organisation].[Semesters]", "Id"), LeftJoin(jSemester), TextualField(nameof(SemesterName))]
+    public int? SemesterId
+    {
+        get => fields.SemesterId[this];
+        set => fields.SemesterId[this] = value;
+
+    
+}
+[DisplayName("Semester Semester Name"), Expression($"{jSemester}.[Semester]")]
+public string SemesterName
+    {
+    get => fields.SemesterName[this];
+    set => fields.SemesterName[this] = value;
+}
+
+public class RowFields : RowFieldsBase
     {
         public Int32Field Id;
         public Int32Field StudentId;
@@ -72,5 +101,9 @@ public sealed class ProjectRow : Row<ProjectRow.RowFields>, IIdRow, INameRow
         public StringField ProjectReport;
 
         public StringField StudentFirstName;
+        public Int32Field DepartmentId;
+        public StringField DepartmentName;
+        public Int32Field SemesterId;
+        public StringField SemesterName;
     }
 }

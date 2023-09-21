@@ -3,6 +3,7 @@ import { initFormType } from "@serenity-is/corelib/q";
 
 export interface SkillsForm {
     Name: StringEditor;
+    SkillCategory: StringEditor;
 }
 
 export class SkillsForm extends PrefixedContext {
@@ -18,7 +19,8 @@ export class SkillsForm extends PrefixedContext {
             var w0 = StringEditor;
 
             initFormType(SkillsForm, [
-                'Name', w0
+                'Name', w0,
+                'SkillCategory', w0
             ]);
         }
     }

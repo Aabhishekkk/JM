@@ -2,14 +2,13 @@
 import { initFormType } from "@serenity-is/corelib/q";
 
 export interface StudentsSkillsForm {
-    ESkillCategory: StringEditor;
+    SkillCategory: StringEditor;
     SkillId: IntegerEditor;
     Rating: IntegerEditor;
     AknowledgeBy: StringEditor;
     Certification: StringEditor;
     CertificationDetails: StringEditor;
     StudentId: IntegerEditor;
-    SkillCategory: IntegerEditor;
 }
 
 export class StudentsSkillsForm extends PrefixedContext {
@@ -26,14 +25,13 @@ export class StudentsSkillsForm extends PrefixedContext {
             var w1 = IntegerEditor;
 
             initFormType(StudentsSkillsForm, [
-                'ESkillCategory', w0,
+                'SkillCategory', w0,
                 'SkillId', w1,
                 'Rating', w1,
                 'AknowledgeBy', w0,
                 'Certification', w0,
                 'CertificationDetails', w0,
-                'StudentId', w1,
-                'SkillCategory', w1
+                'StudentId', w1
             ]);
         }
     }

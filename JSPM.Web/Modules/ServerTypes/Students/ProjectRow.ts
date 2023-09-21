@@ -8,6 +8,10 @@ export interface ProjectRow {
     ProjectDetails?: string;
     ProjectReport?: string;
     StudentFirstName?: string;
+    DepartmentId?: number;
+    DepartmentName?: string;
+    SemesterId?: number;
+    SemesterName?: string;
 }
 
 export abstract class ProjectRow {

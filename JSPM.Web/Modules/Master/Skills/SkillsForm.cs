@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 
 namespace JSPM.Master.Forms;
 
@@ -7,4 +7,7 @@ namespace JSPM.Master.Forms;
 public class SkillsForm
 {
     public string Name { get; set; }
+
+
+    public string SkillCategory { get; set; }
 }

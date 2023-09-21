@@ -15,4 +15,6 @@ public class ProjectColumns
     public string ProjectTitle { get; set; }
     public string ProjectDetails { get; set; }
     public string ProjectReport { get; set; }
+    public string DepartmentName { get; set; }
+    public string SemesterName { get; set; }
 }

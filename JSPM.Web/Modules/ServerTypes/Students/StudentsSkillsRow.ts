@@ -2,21 +2,20 @@
 
 export interface StudentsSkillsRow {
     Id?: number;
-    ESkillCategory?: string;
+    SkillCategory?: string;
     SkillId?: number;
     Rating?: number;
     AknowledgeBy?: string;
     Certification?: string;
     CertificationDetails?: string;
     StudentId?: number;
-    SkillCategory?: number;
     SkillName?: string;
     StudentFirstName?: string;
 }
 
 export abstract class StudentsSkillsRow {
     static readonly idProperty = 'Id';
-    static readonly nameProperty = 'ESkillCategory';
+    static readonly nameProperty = 'SkillCategory';
     static readonly localTextPrefix = 'Students.StudentsSkills';
     static readonly deletePermission = 'Administration:General';
     static readonly insertPermission = 'Administration:General';

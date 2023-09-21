@@ -7,6 +7,8 @@ export interface ProjectForm {
     ProjectTitle: StringEditor;
     ProjectDetails: StringEditor;
     ProjectReport: StringEditor;
+    DepartmentId: IntegerEditor;
+    SemesterId: IntegerEditor;
 }
 
 export class ProjectForm extends PrefixedContext {
@@ -27,7 +29,9 @@ export class ProjectForm extends PrefixedContext {
                 'Type', w1,
                 'ProjectTitle', w1,
                 'ProjectDetails', w1,
-                'ProjectReport', w1
+                'ProjectReport', w1,
+                'DepartmentId', w0,
+                'SemesterId', w0
             ]);
         }
     }

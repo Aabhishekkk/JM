@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -53,7 +53,7 @@ public sealed class AcademicSubjectLevelRow : Row<AcademicSubjectLevelRow.RowFie
         set => fields.DivisionId[this] = value;
     }
 
-    [DisplayName("Subject"), ForeignKey("[Syllabus].[Subjects]", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectName))]
+    [DisplayName("Subject"), ForeignKey("[dbo].[Subjects]", "Id"), LeftJoin(jSubject), TextualField(nameof(SubjectName))]
     public int? SubjectId
     {
         get => fields.SubjectId[this];

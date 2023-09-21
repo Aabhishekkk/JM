@@ -27,7 +27,7 @@ export class TeacherEndorsementExcelImportDialog extends PropertyDialog<any, any
                         notifyError("Please select a file!");
                         return;
                     }
-                    /*TeacherEndorsementService.ExcelImport({
+                    TeacherEndorsementService.ExcelImport({
                         FileName: this.form.FileName.value.Filename,
                     }, response => {
                         notifyInfo(
@@ -37,7 +37,7 @@ export class TeacherEndorsementExcelImportDialog extends PropertyDialog<any, any
                             notifyError(response.ErrorList.join(',\r\n '));
                         }
                         this.dialogClose();
-                    });*/
+                    });
                 },
             },
             {

@@ -21,7 +21,7 @@ public sealed class TeacherEndorsementRow : Row<TeacherEndorsementRow.RowFields>
     }
 
     [DisplayName("Teacher Id")]
-    public string? TeacherId
+    public string TeacherId
     {
         get => fields.TeacherId[this];
         set => fields.TeacherId[this] = value;
