@@ -140,19 +140,19 @@ public class StudentsSkillsEndpoint : ServiceEndpoint
                     response.ErrorList.Add("Error On Row " + row + ": Certification Not found");
                     continue;
                 }
-                string StudentId = Convert.ToString(worksheet.Cells[row, 6].Value ?? "").Trim();
-                if (!string.IsNullOrEmpty(SkillId))
+                Row.CertificationDetails = Convert.ToString(worksheet.Cells[row, 6].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.CertificationDetails))
                 {
-                    var StudentMaster = uow.Connection.TryFirst<PersonalRow>(PersonalRow.Fields.FirstName == StudentId);
-                    if (StudentMaster != null)
-                        Row.StudentId = StudentMaster.Id;
-                    else
-                    {
-                        response.ErrorList.Add("Error On Row " + row + ": Invalid Course!");
-                        continue;
-                    }
+                    response.ErrorList.Add("Error On Row " + row + ": CertificationDetails Not found");
+                    continue;
                 }
 
+                Row.SkillName = Convert.ToString(worksheet.Cells[row, 7].Value ?? "").Trim();
+                if (string.IsNullOrEmpty(Row.SkillName))
+                {
+                    response.ErrorList.Add("Error On Row " + row + ": SkillName Not found");
+                    continue;
+                }
 
 
                 uow.Connection.Insert(Row);

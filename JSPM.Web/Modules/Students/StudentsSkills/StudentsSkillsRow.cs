@@ -70,9 +70,9 @@ public sealed class StudentsSkillsRow : Row<StudentsSkillsRow.RowFields>, IIdRow
         set => fields.StudentId[this] = value;
     }
 
-   
 
-    [DisplayName("Skill Name"), Expression($"{jSkill}.[Name]")]
+
+    [DisplayName("SkillName"), Expression($"{jSkill}.[Name]")]
     public string SkillName
     {
         get => fields.SkillName[this];

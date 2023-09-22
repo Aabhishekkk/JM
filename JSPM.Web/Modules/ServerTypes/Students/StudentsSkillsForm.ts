@@ -8,7 +8,7 @@ export interface StudentsSkillsForm {
     AknowledgeBy: StringEditor;
     Certification: StringEditor;
     CertificationDetails: StringEditor;
-    StudentId: IntegerEditor;
+    SkillName: StringEditor;
 }
 
 export class StudentsSkillsForm extends PrefixedContext {
@@ -31,7 +31,7 @@ export class StudentsSkillsForm extends PrefixedContext {
                 'AknowledgeBy', w0,
                 'Certification', w0,
                 'CertificationDetails', w0,
-                'StudentId', w1
+                'SkillName', w0
             ]);
         }
     }

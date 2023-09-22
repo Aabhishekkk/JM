@@ -6,7 +6,7 @@ import { SkillsExcelImportForm } from
 import { SkillsService } from
     '../../ServerTypes/Master';
 
-@Decorators.registerClass('JJSPM.Master.SkillsDialog')
+@Decorators.registerClass('JSPM.Master.SkillsDialog')
 export class SkillsExcelImportDialog extends PropertyDialog<any, any>{
     protected getFormKey() { return SkillsExcelImportForm.formKey; }
     protected form = new SkillsExcelImportForm(this.idPrefix);

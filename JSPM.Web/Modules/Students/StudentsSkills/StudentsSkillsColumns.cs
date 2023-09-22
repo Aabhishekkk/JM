@@ -11,11 +11,11 @@ public class StudentsSkillsColumns
     public int Id { get; set; }
     [EditLink]
     public string SkillCategory { get; set; }
-    public string SkillName { get; set; }
+    public int SkillId { get; set; }
     public int Rating { get; set; }
     public string AknowledgeBy { get; set; }
     public string Certification { get; set; }
     public string CertificationDetails { get; set; }
-    public string StudentFirstName { get; set; }
+    public string SkillName { get; set; }
     
 }

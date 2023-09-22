@@ -8,7 +8,7 @@ namespace JSPM. Project
 {
     [FormScript("Project.ProjectExcelImport")]
     // [BasedOnRow(typeof(QuestionRow), CheckNames = true)]
-    public class ProjectExcelImportForm
+    public class JobOpeningExcelImportForm
     {
         [FileUploadEditor, Required]
         public String FileName { get; set; }
