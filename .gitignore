@@ -363,3 +363,8 @@ MigrationBackup/
 FodyWeavers.xsd
 /JSPM.Web/wwwroot/esm/_chunks
 /JSPM.Web/wwwroot/esm/Modules/Students/StudentsSkills
+/JSPM.Web/wwwroot/esm/Modules/Students/Personal/PersonalPage.js
+/JSPM.Web/wwwroot/esm/Modules/Students/AcademicSubjectLevel/AcademicSubjectLevelPage.js
+/JSPM.Web/wwwroot/esm/Modules/Students/InstituteAcademic/InstituteAcademicPage.js
+/JSPM.Web/wwwroot/esm/Modules/Students/Project/ProjectPage.js
+/JSPM.Web/wwwroot/esm/Modules/Students/TeacherEndorsement/TeacherEndorsementPage.js
