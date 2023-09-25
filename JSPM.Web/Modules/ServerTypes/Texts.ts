@@ -74,6 +74,49 @@ namespace JSPM.Texts {
             }
         }
 
+        namespace Examination {
+
+            namespace ExamAttemptDetails {
+                export const BranchId: string;
+                export const BranchName: string;
+                export const ExamQuestionId: string;
+                export const ExamQuestionQuestionNumber: string;
+                export const Id: string;
+                export const NumberofAttempts: string;
+            }
+
+            namespace ExamQuestions {
+                export const BranchId: string;
+                export const BranchName: string;
+                export const Id: string;
+                export const Marks: string;
+                export const QuestionDescription: string;
+                export const QuestionNumber: string;
+                export const QuestionType: string;
+                export const SemId: string;
+                export const Semester: string;
+                export const SubId: string;
+            }
+
+            namespace ExamSections {
+                export const DisplayName: string;
+                export const ExamId: string;
+                export const ExamName: string;
+                export const Id: string;
+                export const Instructions: string;
+                export const Name: string;
+                export const NumberOfQuestions: string;
+                export const NumberofMandatoryQuestions: string;
+                export const SectionDurationInSeconds: string;
+            }
+
+            namespace Exams {
+                export const ExamInstructions: string;
+                export const ExamName: string;
+                export const Id: string;
+            }
+        }
+
         namespace Master {
 
             namespace Skills {
@@ -155,6 +198,22 @@ namespace JSPM.Texts {
         }
 
         namespace Students {
+
+            namespace Academic {
+                export const CourseLevel: string;
+                export const CourseName: string;
+                export const Id: string;
+                export const PassingType: string;
+                export const Percentage: string;
+                export const ProjectId: string;
+                export const ProjectType: string;
+                export const Remark: string;
+                export const SkillCategory: string;
+                export const SkillId: string;
+                export const StudentFirstName: string;
+                export const StudentId: string;
+                export const YearOfPassing: string;
+            }
 
             namespace AcademicSubjectLevel {
                 export const AcademicYearId: string;
@@ -443,7 +502,7 @@ namespace JSPM.Texts {
         export const SavePrimaryKeyError: string;
     }
 
-    JSPM['Texts'] = proxyTexts(Texts, '', {Db:{Administration:{Language:{Id:1,LanguageId:1,LanguageName:1},Role:{RoleId:1,RoleName:1},RolePermission:{PermissionKey:1,RoleId:1,RolePermissionId:1,RoleRoleName:1},Translation:{CustomText:1,EntityPlural:1,Key:1,OverrideConfirmation:1,SaveChangesButton:1,SourceLanguage:1,SourceText:1,TargetLanguage:1,TargetText:1},User:{DisplayName:1,Email:1,InsertDate:1,InsertUserId:1,IsActive:1,LastDirectoryUpdate:1,Password:1,PasswordConfirm:1,PasswordHash:1,PasswordSalt:1,Roles:1,Source:1,UpdateDate:1,UpdateUserId:1,UserId:1,UserImage:1,Username:1},UserPermission:{Granted:1,PermissionKey:1,User:1,UserId:1,UserPermissionId:1,Username:1},UserRole:{RoleId:1,User:1,UserId:1,UserRoleId:1,Username:1}},Master:{Skills:{Id:1,Name:1,SkillCategory:1},States:{Id:1,Name:1}},Organisation:{AcademicYears:{AcademicYear:1,Id:1,Index:1},Batches:{BatchName:1,DivisionId:1,DivisionName:1,Id:1},Branches:{BranchCode:1,BranchName:1,DepartmentId:1,DepartmentName:1,Id:1,InstituteId:1,InstituteName:1},Departments:{DepartmentName:1,Id:1},Division:{AcademicYearsId:1,BranchId:1,BranchName:1,DepartmentId:1,DepartmentName:1,DivisionName:1,EndDate:1,Id:1,InstituteId:1,InstituteName:1,SemesterId:1,StartDate:1},Group:{BatchId:1,BatchName:1,GroupName:1,Id:1},Institute:{Description:1,Id:1,InstituteName:1},Semesters:{AcademicYearsId:1,Id:1,Index:1,Semester:1}},Students:{AcademicSubjectLevel:{AcademicYearId:1,BranchId:1,BranchName:1,DivisionId:1,DivisionName:1,EStatus:1,Grade:1,Id:1,Month:1,Percentage:1,SemesterId:1,StudentFirstName:1,StudentId:1,SubjectId:1,SubjectName:1,Year:1},InstituteAcademic:{AcademicYearId:1,BranchId:1,BranchName:1,DivisionId:1,DivisionName:1,EStatus:1,Grade:1,Id:1,Month:1,Percentage:1,SemesterId:1,StudentFirstName:1,StudentId:1,Year:1},Personal:{AdmissionDate:1,BranchId:1,BranchName:1,City:1,CurrentAddress:1,CurrentCity:1,CurrentState:1,DepartmentId:1,DepartmentName:1,DivisionId:1,DivisionName:1,Dob:1,Email:1,FirstName:1,Gender:1,Id:1,LastName:1,MiddleName:1,MobileNumber:1,PermanentAddress:1,Pin:1,Pnr:1},Project:{DepartmentId:1,DepartmentName:1,Id:1,ProjectDetails:1,ProjectReport:1,ProjectTitle:1,SemesterId:1,SemesterName:1,StudentFirstName:1,StudentId:1,Type:1},StudentsSkills:{AknowledgeBy:1,Certification:1,CertificationDetails:1,Id:1,Rating:1,SkillCategory:1,SkillId:1,SkillName:1,StudentFirstName:1,StudentId:1},TeacherEndorsement:{Details:1,Id:1,StudentFirstName:1,StudentId:1,TeacherId:1,Title:1}},Syllabus:{Chapters:{ChapterName:1,Description:1,Id:1,Index:1,SubjectId:1,SubjectName:1},Subjects:{AcademicYearId:1,BranchId:1,BranchName:1,Description:1,Id:1,Priority:1,SemesterId:1,SubjectCode:1,SubjectName:1,SubjectType:1},Topics:{ChapterId:1,ChapterName:1,Description:1,Id:1,Index:1,SubjectId:1,SubjectName:1,TopicName:1}}},Forms:{Membership:{ChangePassword:{FormTitle:1,SubmitButton:1,Success:1},ForgotPassword:{BackToLogin:1,FormInfo:1,FormTitle:1,SubmitButton:1,SuccessMessage:1},Login:{FacebookButton:1,ForgotPassword:1,GoogleButton:1,LoginToYourAccount:1,OR:1,RememberMe:1,SignInButton:1,SignUpButton:1},ResetPassword:{BackToLogin:1,EmailSubject:1,FormTitle:1,SubmitButton:1,Success:1},SignUp:{AcceptTerms:1,ActivateEmailSubject:1,ActivationCompleteMessage:1,BackToLogin:1,ConfirmEmail:1,ConfirmPassword:1,DisplayName:1,Email:1,FormInfo:1,FormTitle:1,Password:1,SubmitButton:1,Success:1}}},Navigation:{LogoutLink:1,SiteTitle:1},Site:{AccessDenied:{ClickToChangeUser:1,ClickToLogin:1,LackPermissions:1,NotLoggedIn:1,PageTitle:1},BasicProgressDialog:{CancelTitle:1,PleaseWait:1},BulkServiceAction:{AllHadErrorsFormat:1,AllSuccessFormat:1,ConfirmationFormat:1,ErrorCount:1,NothingToProcess:1,SomeHadErrorsFormat:1,SuccessCount:1},Dashboard:{ContentDescription:1},Layout:{FooterCopyright:1,FooterInfo:1,FooterRights:1,GeneralSettings:1,Language:1,Theme:1,ThemeBlack:1,ThemeBlackLight:1,ThemeBlue:1,ThemeBlueLight:1,ThemeGreen:1,ThemeGreenLight:1,ThemePurple:1,ThemePurpleLight:1,ThemeRed:1,ThemeRedLight:1,ThemeYellow:1,ThemeYellowLight:1},RolePermissionDialog:{DialogTitle:1,EditButton:1,SaveSuccess:1},UserDialog:{EditPermissionsButton:1,EditRolesButton:1},UserPermissionDialog:{DialogTitle:1,Grant:1,Permission:1,Revoke:1,SaveSuccess:1},UserRoleDialog:{DialogTitle:1,SaveSuccess:1},ValidationError:{Title:1}},Validation:{AuthenticationError:1,CurrentPasswordMismatch:1,DeleteForeignKeyError:1,EmailConfirm:1,EmailInUse:1,InvalidActivateToken:1,InvalidResetToken:1,MinRequiredPasswordLength:1,PasswordConfirmMismatch:1,SavePrimaryKeyError:1}}) as any;
+    JSPM['Texts'] = proxyTexts(Texts, '', {Db:{Administration:{Language:{Id:1,LanguageId:1,LanguageName:1},Role:{RoleId:1,RoleName:1},RolePermission:{PermissionKey:1,RoleId:1,RolePermissionId:1,RoleRoleName:1},Translation:{CustomText:1,EntityPlural:1,Key:1,OverrideConfirmation:1,SaveChangesButton:1,SourceLanguage:1,SourceText:1,TargetLanguage:1,TargetText:1},User:{DisplayName:1,Email:1,InsertDate:1,InsertUserId:1,IsActive:1,LastDirectoryUpdate:1,Password:1,PasswordConfirm:1,PasswordHash:1,PasswordSalt:1,Roles:1,Source:1,UpdateDate:1,UpdateUserId:1,UserId:1,UserImage:1,Username:1},UserPermission:{Granted:1,PermissionKey:1,User:1,UserId:1,UserPermissionId:1,Username:1},UserRole:{RoleId:1,User:1,UserId:1,UserRoleId:1,Username:1}},Examination:{ExamAttemptDetails:{BranchId:1,BranchName:1,ExamQuestionId:1,ExamQuestionQuestionNumber:1,Id:1,NumberofAttempts:1},ExamQuestions:{BranchId:1,BranchName:1,Id:1,Marks:1,QuestionDescription:1,QuestionNumber:1,QuestionType:1,SemId:1,Semester:1,SubId:1},ExamSections:{DisplayName:1,ExamId:1,ExamName:1,Id:1,Instructions:1,Name:1,NumberOfQuestions:1,NumberofMandatoryQuestions:1,SectionDurationInSeconds:1},Exams:{ExamInstructions:1,ExamName:1,Id:1}},Master:{Skills:{Id:1,Name:1,SkillCategory:1},States:{Id:1,Name:1}},Organisation:{AcademicYears:{AcademicYear:1,Id:1,Index:1},Batches:{BatchName:1,DivisionId:1,DivisionName:1,Id:1},Branches:{BranchCode:1,BranchName:1,DepartmentId:1,DepartmentName:1,Id:1,InstituteId:1,InstituteName:1},Departments:{DepartmentName:1,Id:1},Division:{AcademicYearsId:1,BranchId:1,BranchName:1,DepartmentId:1,DepartmentName:1,DivisionName:1,EndDate:1,Id:1,InstituteId:1,InstituteName:1,SemesterId:1,StartDate:1},Group:{BatchId:1,BatchName:1,GroupName:1,Id:1},Institute:{Description:1,Id:1,InstituteName:1},Semesters:{AcademicYearsId:1,Id:1,Index:1,Semester:1}},Students:{Academic:{CourseLevel:1,CourseName:1,Id:1,PassingType:1,Percentage:1,ProjectId:1,ProjectType:1,Remark:1,SkillCategory:1,SkillId:1,StudentFirstName:1,StudentId:1,YearOfPassing:1},AcademicSubjectLevel:{AcademicYearId:1,BranchId:1,BranchName:1,DivisionId:1,DivisionName:1,EStatus:1,Grade:1,Id:1,Month:1,Percentage:1,SemesterId:1,StudentFirstName:1,StudentId:1,SubjectId:1,SubjectName:1,Year:1},InstituteAcademic:{AcademicYearId:1,BranchId:1,BranchName:1,DivisionId:1,DivisionName:1,EStatus:1,Grade:1,Id:1,Month:1,Percentage:1,SemesterId:1,StudentFirstName:1,StudentId:1,Year:1},Personal:{AdmissionDate:1,BranchId:1,BranchName:1,City:1,CurrentAddress:1,CurrentCity:1,CurrentState:1,DepartmentId:1,DepartmentName:1,DivisionId:1,DivisionName:1,Dob:1,Email:1,FirstName:1,Gender:1,Id:1,LastName:1,MiddleName:1,MobileNumber:1,PermanentAddress:1,Pin:1,Pnr:1},Project:{DepartmentId:1,DepartmentName:1,Id:1,ProjectDetails:1,ProjectReport:1,ProjectTitle:1,SemesterId:1,SemesterName:1,StudentFirstName:1,StudentId:1,Type:1},StudentsSkills:{AknowledgeBy:1,Certification:1,CertificationDetails:1,Id:1,Rating:1,SkillCategory:1,SkillId:1,SkillName:1,StudentFirstName:1,StudentId:1},TeacherEndorsement:{Details:1,Id:1,StudentFirstName:1,StudentId:1,TeacherId:1,Title:1}},Syllabus:{Chapters:{ChapterName:1,Description:1,Id:1,Index:1,SubjectId:1,SubjectName:1},Subjects:{AcademicYearId:1,BranchId:1,BranchName:1,Description:1,Id:1,Priority:1,SemesterId:1,SubjectCode:1,SubjectName:1,SubjectType:1},Topics:{ChapterId:1,ChapterName:1,Description:1,Id:1,Index:1,SubjectId:1,SubjectName:1,TopicName:1}}},Forms:{Membership:{ChangePassword:{FormTitle:1,SubmitButton:1,Success:1},ForgotPassword:{BackToLogin:1,FormInfo:1,FormTitle:1,SubmitButton:1,SuccessMessage:1},Login:{FacebookButton:1,ForgotPassword:1,GoogleButton:1,LoginToYourAccount:1,OR:1,RememberMe:1,SignInButton:1,SignUpButton:1},ResetPassword:{BackToLogin:1,EmailSubject:1,FormTitle:1,SubmitButton:1,Success:1},SignUp:{AcceptTerms:1,ActivateEmailSubject:1,ActivationCompleteMessage:1,BackToLogin:1,ConfirmEmail:1,ConfirmPassword:1,DisplayName:1,Email:1,FormInfo:1,FormTitle:1,Password:1,SubmitButton:1,Success:1}}},Navigation:{LogoutLink:1,SiteTitle:1},Site:{AccessDenied:{ClickToChangeUser:1,ClickToLogin:1,LackPermissions:1,NotLoggedIn:1,PageTitle:1},BasicProgressDialog:{CancelTitle:1,PleaseWait:1},BulkServiceAction:{AllHadErrorsFormat:1,AllSuccessFormat:1,ConfirmationFormat:1,ErrorCount:1,NothingToProcess:1,SomeHadErrorsFormat:1,SuccessCount:1},Dashboard:{ContentDescription:1},Layout:{FooterCopyright:1,FooterInfo:1,FooterRights:1,GeneralSettings:1,Language:1,Theme:1,ThemeBlack:1,ThemeBlackLight:1,ThemeBlue:1,ThemeBlueLight:1,ThemeGreen:1,ThemeGreenLight:1,ThemePurple:1,ThemePurpleLight:1,ThemeRed:1,ThemeRedLight:1,ThemeYellow:1,ThemeYellowLight:1},RolePermissionDialog:{DialogTitle:1,EditButton:1,SaveSuccess:1},UserDialog:{EditPermissionsButton:1,EditRolesButton:1},UserPermissionDialog:{DialogTitle:1,Grant:1,Permission:1,Revoke:1,SaveSuccess:1},UserRoleDialog:{DialogTitle:1,SaveSuccess:1},ValidationError:{Title:1}},Validation:{AuthenticationError:1,CurrentPasswordMismatch:1,DeleteForeignKeyError:1,EmailConfirm:1,EmailInUse:1,InvalidActivateToken:1,InvalidResetToken:1,MinRequiredPasswordLength:1,PasswordConfirmMismatch:1,SavePrimaryKeyError:1}}) as any;
 }
 
 export const Texts = JSPM.Texts;
