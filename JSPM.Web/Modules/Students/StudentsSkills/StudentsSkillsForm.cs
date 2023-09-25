@@ -12,6 +12,7 @@ public class StudentsSkillsForm
     public string AknowledgeBy { get; set; }
     public string Certification { get; set; }
     public string CertificationDetails { get; set; }
+    public string Skills { get; set; }  
     public int StudentId { get; set; }
     
 }

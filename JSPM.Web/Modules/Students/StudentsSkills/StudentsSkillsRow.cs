@@ -15,6 +15,7 @@ public sealed class StudentsSkillsRow : Row<StudentsSkillsRow.RowFields>, IIdRow
     const string jStudent = nameof(jStudent);
 
     [DisplayName("Id"), Identity, IdProperty]
+    [SortOrder(1, descending: false)]
     public int? Id
     {
         get => fields.Id[this];
@@ -70,7 +71,14 @@ public sealed class StudentsSkillsRow : Row<StudentsSkillsRow.RowFields>, IIdRow
         set => fields.StudentId[this] = value;
     }
 
-   
+    [DisplayName("Skills"), Column("Skills"), Size(100), NotNull]
+    public string Skills
+    {
+        get => fields.Skills[this];
+        set => fields.Skills[this] = value;
+    }
+
+
 
     [DisplayName("Skill Name"), Expression($"{jSkill}.[Name]")]
     public string SkillName
@@ -96,7 +104,7 @@ public sealed class StudentsSkillsRow : Row<StudentsSkillsRow.RowFields>, IIdRow
         public StringField Certification;
         public StringField CertificationDetails;
         public Int32Field StudentId;
-       
+        public StringField Skills;
 
         public StringField SkillName;
         public StringField StudentFirstName;

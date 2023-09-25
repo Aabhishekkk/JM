@@ -14,6 +14,7 @@ public sealed class TeacherEndorsementRow : Row<TeacherEndorsementRow.RowFields>
     const string jStudent = nameof(jStudent);
 
     [DisplayName("Id"), Identity, IdProperty]
+    [SortOrder(1, descending: false)]
     public int? Id
     {
         get => fields.Id[this];

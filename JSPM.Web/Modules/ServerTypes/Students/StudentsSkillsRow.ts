@@ -9,6 +9,7 @@ export interface StudentsSkillsRow {
     Certification?: string;
     CertificationDetails?: string;
     StudentId?: number;
+    Skills?: string;
     SkillName?: string;
     StudentFirstName?: string;
 }

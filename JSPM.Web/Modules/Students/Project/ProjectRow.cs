@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System.ComponentModel;
@@ -16,6 +16,7 @@ public sealed class ProjectRow : Row<ProjectRow.RowFields>, IIdRow, INameRow
     const string jSemester = nameof(jSemester);
 
     [DisplayName("Id"), Identity, IdProperty]
+    [SortOrder(1, descending: false)]
     public int? Id
     {
         get => fields.Id[this];
