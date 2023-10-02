@@ -1,4 +1,4 @@
-﻿using JSPM.Administration;
+using JSPM.Administration;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -88,7 +88,7 @@ namespace JSPM.Membership.Pages
         public ActionResult Signout()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return new RedirectResult("~/");
+            return new RedirectResult("~/app");
         }
     }
 }

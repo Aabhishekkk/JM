@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Serenity;
 using Serenity.Abstractions;
 using Serenity.Data;
@@ -9,7 +9,7 @@ namespace JSPM.Common.Pages
     [Route("Dashboard/[action]")]
     public class DashboardController : Controller
     {
-        [PageAuthorize, HttpGet, Route("~/")]
+        [PageAuthorize, HttpGet, Route("~/app")]
         public ActionResult Index([FromServices] ITwoLevelCache cache, [FromServices] ISqlConnections sqlConnections)
         {
             if (cache is null)

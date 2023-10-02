@@ -2,13 +2,13 @@ using FluentMigrator;
 
 namespace JSPM.Migrations.DefaultDB
 {
-    [Migration(20232509_132500)]
-    public class DefaultDB_20232509_132500_OverallAcademic: AutoReversingMigration
+    [Migration(20230926_121300)]
+    public class DefaultDB_20230926_121300_Academicss : AutoReversingMigration
     {
 
         public override void Up()
         {
-            Create.Table("Academic").InSchema("Students")
+            Create.Table("Academics").InSchema("Students")
                 .WithColumn("Id").AsInt32().Identity().PrimaryKey().NotNullable()
                 .WithColumn("CourseLevel").AsString(50).Nullable()
                  .WithColumn("CourseName").AsString(50).Nullable()

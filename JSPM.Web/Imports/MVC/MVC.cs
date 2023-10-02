@@ -9,6 +9,11 @@ public static class Views
         {
             public const string DashboardIndex = "~/Modules/Common/Dashboard/DashboardIndex.cshtml";
         }
+
+        public static class Home
+        {
+            public const string HomeIndex = "~/Modules/Common/Home/HomeIndex.cshtml";
+        }
     }
 
     public static class Errors
