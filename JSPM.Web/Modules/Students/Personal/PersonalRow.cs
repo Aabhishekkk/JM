@@ -1,4 +1,4 @@
-﻿using Serenity.ComponentModel;
+using Serenity.ComponentModel;
 using Serenity.Data;
 using Serenity.Data.Mapping;
 using System;
@@ -116,14 +116,14 @@ public sealed class PersonalRow : Row<PersonalRow.RowFields>, IIdRow, INameRow
         set => fields.Gender[this] = value;
     }
 
-    [DisplayName("Dob"), Column("DOB"), NotNull]
+    [DisplayName("Dob"), Column("DOB")]
     public DateTime? Dob
     {
         get => fields.Dob[this];
         set => fields.Dob[this] = value;
     }
 
-    [DisplayName("Admission Date"), NotNull]
+    [DisplayName("Admission Date")]
     public DateTime? AdmissionDate
     {
         get => fields.AdmissionDate[this];

@@ -10,7 +10,21 @@
     <TypeScriptCompile Remove="node_modules\**" />
     <EmbeddedResource Include="Migrations\**\*.sql" />
     <Content Remove="Modules\Common\Home\HomeIndex.cshtml" />
+    <Content Remove="Modules\Common\Home\Practice.cshtml" />
     <None Include="Modules\Common\Home\HomeIndex.cshtml" />
+    <None Include="Modules\Common\Home\Practice.cshtml" />
+    <None Include="wwwroot\Content\iCheck\JSPM\css\style.css.map" />
+    <None Include="wwwroot\Content\iCheck\JSPM\css\style.scss" />
+    <None Include="wwwroot\Content\iCheck\JSPM\js\bootstrap.js" />
+    <None Include="wwwroot\Content\iCheck\JSPM\js\custom.js" />
+    <None Include="wwwroot\Content\iCheck\JSPM\js\jquery-3.4.1.min.js" />
+    <None Include="wwwroot\fontso\Flaticon.svg" />
+    <None Include="wwwroot\fontso\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fontso\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fontso\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\fontso\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\fontso\Linearicons-Free.svg" />
+    <None Include="wwwroot\fontso\Linearicons-Free.woff2" />
     <Content Update=".eslintrc.json;libman.json;package.json;package-lock.json;sergen.json;tsconfig.json;tslint.json;Modules\tsconfig.json" CopyToOutputDirectory="Never" CopyToPublishDirectory="Never" />
   </ItemGroup>
   <ItemGroup>

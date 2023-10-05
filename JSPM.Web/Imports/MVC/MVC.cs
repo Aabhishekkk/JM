@@ -13,6 +13,8 @@ public static class Views
         public static class Home
         {
             public const string HomeIndex = "~/Modules/Common/Home/HomeIndex.cshtml";
+            public const string Mentorship = "~/Modules/Common/Home/Mentorship.cshtml";
+            public const string Practice = "~/Modules/Common/Home/Practice.cshtml";
         }
     }
 
