@@ -27,7 +27,18 @@ namespace JSPM.Common.Pages
 
             return View(MVC.Views.Common.Home.Mentorship);
         }
+        [HttpGet, Route("~/Compete")]
+        public ActionResult Compete()
+        {
 
+            return View(MVC.Views.Common.Home.Compete);
+        }
+        [HttpGet, Route("~/Jobs")]
+        public ActionResult Jobs()
+        {
+
+            return View(MVC.Views.Common.Home.Jobs);
+        }
 
         /*[HttpGet, Route("~/BlogSingle")]
          public ActionResult BlogSingle()

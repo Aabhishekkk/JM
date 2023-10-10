@@ -9,8 +9,12 @@
   <ItemGroup>
     <TypeScriptCompile Remove="node_modules\**" />
     <EmbeddedResource Include="Migrations\**\*.sql" />
+    <Content Remove="Modules\Common\Home\Compete.cshtml" />
     <Content Remove="Modules\Common\Home\HomeIndex.cshtml" />
+    <Content Remove="Modules\Common\Home\Jobs.cshtml" />
     <Content Remove="Modules\Common\Home\Practice.cshtml" />
+    <None Include="Modules\Common\Home\Jobs.cshtml" />
+    <None Include="Modules\Common\Home\Compete.cshtml" />
     <None Include="Modules\Common\Home\HomeIndex.cshtml" />
     <None Include="Modules\Common\Home\Practice.cshtml" />
     <None Include="wwwroot\Content\iCheck\JSPM\css\style.css.map" />
